@@ -43,7 +43,7 @@
 
       if (isCitation) {
         // Forward to Guidelines with the original (unmodified) citation encoded
-        const target = 'https://www.nurk.invalid/guidelines/' + encodeURIComponent(query);
+        const target = 'https://batavia.internal.epo.org/sls/sls-service-prod/ui#text:sls2/pub/pct-epo-guidelines/2025/$l/' + encodeURIComponent(query) + '.xml';
         window.location.replace(target);
       } else {
         // Otherwise, send to Google with the original query
