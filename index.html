@@ -43,7 +43,10 @@
 
       if (isCitation) {
         // Forward to Guidelines with the original (unmodified) citation encoded
-        const target = 'https://batavia.internal.epo.org/sls/sls-service-prod/ui#text:sls2/pub/pct-epo-guidelines/2025/$l/' + encodeURIComponent(query) + '.xml';
+        
+        const citationWithDot = raw.replace( /^([A-G][\u2011\u2013-][IVX]{1,4})\s+([0-9]+(?:\.[0-9]+){0,3})$/ , (_, left, right) => `${left}.${right}` );
+
+        const target = 'https://batavia.internal.epo.org/sls/sls-service-prod/ui#text:sls2/pub/epcgl/2025/$l/' + encodeURIComponent(citationWithDot) + '.xml';
         window.location.replace(target);
       } else {
         // Otherwise, send to Google with the original query
