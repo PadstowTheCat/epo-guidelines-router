@@ -22,7 +22,7 @@
       let raw = params.get('q') || '';
 
       // Trim and normalize common whitespace
-      let query = raw.trim();
+      let query = raw.trim().toUpperCase();
 
       // If Chrome passed the whole query (including quotes etc.), we use it as-is.
       // Normalize common dash variants to a single character for testing (not for redirect).
@@ -44,7 +44,7 @@
       if (isCitation) {
         // Forward to Guidelines with the original (unmodified) citation encoded
         
-        const citationWithDot = raw.replace( /^([A-G][\u2011\u2013-][IVX]{1,4})\s+([0-9]+(?:\.[0-9]+){0,3})$/ , (_, left, right) => `${left}.${right}` );
+        const citationWithDot = query.replace( /^([A-G][\u2011\u2013-][IVX]{1,4})\s+([0-9]+(?:\.[0-9]+){0,3})$/ , (_, left, right) => `${left}.${right}` );
 
         const target = 'https://batavia.internal.epo.org/sls/sls-service-prod/ui#text:sls2/pub/epcgl/2025/$l/' + encodeURIComponent(citationWithDot) + '.xml';
         window.location.replace(target);
