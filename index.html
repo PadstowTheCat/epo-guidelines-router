@@ -40,7 +40,7 @@
         if (isAllowed) {
           document.write( '<h1>' + command + '</h1><br>' );
           document.write( '<h2>' + parameters + '</h2><br>' );
-          sleep(3);
+          // sleep(3);
           // Build http:/qt/command:parameters (colon stays literal; parameters are URL-encoded)
           const target = QT_BASE + command + ':' + encodeURIComponent(parameters);
           window.location.replace(target);
